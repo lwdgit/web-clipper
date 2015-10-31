@@ -89,7 +89,7 @@
     };
 
     var dbg = console.log.bind(console);
-    module.exports.debug = function(debug) {
+    module.exports.debug = function(debug) {//show debug info or not
         dbg = (debug) ? console.log.bind(console) : function() {};
     };
 
@@ -162,7 +162,7 @@
             var node = nodes[i];
             // Remove unlikely candidates */
             var continueFlag = false;
-            if (!preserveUnlikelyCandidates) {
+            if (!preserveUnlikelyCandidates) {//if not preserver unlikely node
                 var unlikelyMatchString = node.className + node.id;
                 if (unlikelyMatchString.search(regexps.unlikelyCandidatesRe) !== -1 && unlikelyMatchString.search(regexps.okMaybeItsACandidateRe) == -1 && node.tagName !== 'HTML' && node.tagName !== "BODY") {
                     dbg("Removing unlikely candidate - " + unlikelyMatchString);
