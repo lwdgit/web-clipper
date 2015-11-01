@@ -2,7 +2,8 @@ var cleanRules = {
     '.cnblogs_code': require('../clean-rules/cnblogs_code.js'),
     '.syntaxhighlighter': require('../clean-rules/syntaxhighlighter.js'),
     '.dp-highlighter': require('../clean-rules/dp-highlighter.js'),
-    '.prettyprint': require('../clean-rules/prettyprint.js')
+    '.prettyprint': require('../clean-rules/prettyprint.js'),
+    '.crayon-syntax': require('../clean-rules/crayon-syntax.js')
 };
 
 

@@ -9,6 +9,27 @@ module.exports = function(code) {
 };
 });
 
+;/*!/clean-rules/crayon-syntax.js*/
+
+_cmd_define('/clean-rules/crayon-syntax.js', function(_cmd_require, exports, module) {
+module.exports = function(code) {
+    var tmp;
+    if (tmp = code.match(/<td class\="crayon-code">.*?<\/td>/mi)) {
+        code = tmp[0];
+    }
+    code = code.replace(/<\/?(code|p|span|table|thead|tbody|td|tr)[^>]*>/mgi, '');
+    code = code.replace(/<\/?(div)[^>]*>/mgi, function(match) {
+        if (match.indexOf('crayon-line') > -1) {
+            return '\n';
+        } else {
+            return '';
+        }
+    });
+    return '<pre><code>' + code.replace(/^\s*[\n\r]+/, '').replace(/[\r\n]+\s*$/, '') + '</code></pre>';
+};
+
+});
+
 ;/*!/clean-rules/dp-highlighter.js*/
 
 _cmd_define('/clean-rules/dp-highlighter.js', function(_cmd_require, exports, module) {
@@ -58,7 +79,8 @@ var cleanRules = {
     '.cnblogs_code': _cmd_require('/clean-rules/cnblogs_code.js'),
     '.syntaxhighlighter': _cmd_require('/clean-rules/syntaxhighlighter.js'),
     '.dp-highlighter': _cmd_require('/clean-rules/dp-highlighter.js'),
-    '.prettyprint': _cmd_require('/clean-rules/prettyprint.js')
+    '.prettyprint': _cmd_require('/clean-rules/prettyprint.js'),
+    '.crayon-syntax': _cmd_require('/clean-rules/crayon-syntax.js')
 };
 
 
