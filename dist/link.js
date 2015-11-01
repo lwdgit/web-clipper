@@ -2,7 +2,7 @@
     var host = 'http://lwdgit.github.io';
     var conf = {
         origin: host,
-        base: host + '/web-clipper/dist/'
+        base: host + '/web-clipper/dist'
     };
 
     window.addEventListener('message', function(e) {
