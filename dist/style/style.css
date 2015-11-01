@@ -1,0 +1,188 @@
+
+html {margin:0;padding:0;}
+a {cursor:pointer}
+body {margin:0;padding:5px;}
+body.edit-mode {background:url(style/editor-inner-glow.jpg) no-repeat center top}
+body, td {font:12px/1.5 "宋体","sans serif",tahoma,verdana,helvetica;}
+body, p, div {word-wrap: break-word;}
+p {margin:0 0 5px;}
+table {border-collapse:collapse;}
+img {border:0;}
+table.ke-zeroborder td {border:1px dotted #AAA;}
+table {font-size: inherit; border-collapse: collapse;
+    margin-top: 10px; margin-bottom: 10px; display: table;
+}
+table td, table th{
+   word-break: break-all;
+   border: 1px solid #999;
+   padding: 5px 10px;
+   min-height: 25px;
+   min-width: 25px;
+   height: 25px;
+}
+table td>div {min-width: 2px;}
+img.ke-flash {
+    border:1px solid #AAA;
+    background-image:url(themes/common/flash.gif);
+    background-position:center center;
+    background-repeat:no-repeat;
+    width:100px;
+    height:100px;
+}
+img.ke-rm {
+    border:1px solid #AAA;
+    background-image:url(themes/common/rm.gif);
+    background-position:center center;
+    background-repeat:no-repeat;
+    width:100px;
+    height:100px;
+}
+img.ke-media {
+    border:1px solid #AAA;
+    background-image:url(themes/common/media.gif);
+    background-position:center center;
+    background-repeat:no-repeat;
+    width:100px;
+    height:100px;
+}
+img.ke-anchor {
+    border:1px dashed #666;
+    width:16px;
+    height:16px;
+}
+.ke-script {
+    display:none;
+    font-size:0;
+    width:0;
+    height:0;
+}
+.ke-pagebreak {
+    border:1px dotted #AAA;
+    font-size:0;
+    height:2px;
+}
+.ke-content {
+    font-family: "微软雅黑", "Microsoft Yahei", Helvetica Neue, Hiragino Sans GB,"宋体", simsun, "黑体", Arial, sans-serif;
+    font-size: 16px;
+    word-break: break-all;
+    word-wrap: break-word;
+    min-height:300px
+}
+div.remind-wrap {
+    width:550px;
+    min-height:18px;
+    font-size:14px;
+    border:none;
+    display:inline-block;
+    position:relative;
+    vertical-align:top;
+}
+div.remind-wrap.selected, div.remind-wrap.mover, div.remind-wrap:hover {
+    background:#ffffd6;
+}
+div.remind-wrap.mover .remind-text{
+    background:#ffffd6;
+}
+.remind-textarea:focus{
+    background:#ffffd6;
+}
+div.remind-mask {
+    position:absolute!important;
+    width:550px;
+    display:block;
+    height:18px;
+    z-index:999;
+    background:white;
+    opacity:0;
+    filter:progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+}
+div.remind-content {
+    padding-left:50px;
+    line-height:18px;
+    height:18px;
+    overflow:hidden;
+}
+div.remind-content .remind-textarea{
+    resize: none;
+    height: 18px;
+    font-size: 13px;
+    line-height: 18px;
+    width:100%;
+    display:inline-block;
+    padding:0px;
+    outline:none;
+    z-index:3;
+    font:inherit;
+    letter-spacing:inherit;
+    word-spacing:inherit;
+    border:none;
+    white-space:nowrap;
+    background:inherit;
+}
+.remind-content .remind-textarea-holder {
+    z-index:-1!important;
+    position:absolute;
+    display:none;
+    top:0px;
+    left:9999px;
+}
+.view-mode .remind-textarea {
+    display:none;
+}
+span.original-todo {
+    display:none;
+}
+input.remind-checked {
+    position:absolute;
+    left: 5px;
+    top: 2px;
+    *top: -2px;
+    margin:0px;
+    padding:0px;
+}
+i.remind-watch {
+    position:absolute;
+    left: 25px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    top: -1px;
+    background: url(style/remind.png);
+    background-position: -26px -2px;
+}
+.expired i.remind-watch {
+    background-position: -5px -2px;
+}
+.invalid i.remind-watch {
+    background-position: -48px -2px;
+}
+.remind-text {
+    overflow:hidden;
+    display:none;
+    width:100%;
+    height:100%;
+    text-overflow:ellipsis;
+    cursor:default;
+    white-space:nowrap;
+    background:inherit;
+    border:none;
+    font:inherit;
+    letter-spacing:inherit;
+    word-spacing:inherit;
+    border:none;
+    white-space:nowrap;
+}
+.view-mode .remind-text {
+    display:inline-block;
+}
+.invalid .remind-text {
+    color:#999;
+    text-decoration:line-through;
+}
+.lt-550 .remind-wrap{
+    width:100%;
+}
+.from-tcWeiboShare a{
+    color: #006A92;
+    text-decoration: none;
+}

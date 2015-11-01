@@ -121,11 +121,11 @@
         code {
             padding: 1px 3px;
             margin: 0 3px;
-            background: #F8F8F8;
-            border: 1px solid #DCDCDC;
+            background: #FDFDFD;
+            border: 1px solid #ECECEC;
         }
     </style>
-    <link rel="stylesheet" type="text/css" href="themes/default/css/umeditor.css" />
+    <link rel="stylesheet" type="text/css" href="umeditor/themes/default/css/umeditor.css" />
 </head>
 <body>
 
@@ -146,13 +146,14 @@
     <button class="btn">保存</button>
     <button class="btn" onclick="postMsg('close')">隐藏</button>
     <button class="btn" onclick="selectAll()">全选</button>
+    <button class="btn" onclick="postMsg('clip')">重新抓取</button>
 </div>
 
 
-<script type="text/javascript" src="/plugins/jianbaoV2/editor/third-party/jquery.min.js"></script>
-<script type="text/javascript" src="/plugins/jianbaoV2/editor/umeditor.config.js"></script>
-<script type="text/javascript" src="/plugins/jianbaoV2/editor/umeditor.js"></script>
-<script type="text/javascript" src="/plugins/jianbaoV2/editor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="umeditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" src="umeditor/umeditor.config.js"></script>
+<script type="text/javascript" src="umeditor/umeditor.js"></script>
+<script type="text/javascript" src="umeditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
     
     var Editor;
@@ -183,6 +184,7 @@
         });
         $(window).on('resize', function() {
             Editor.setWidth(window.document.body.clientWidth);
+            //Editor.setHeight(window.document.body.clientHeight);
         });
         window.addEventListener('message', function(e) {
             if (e.data) {
@@ -200,7 +202,8 @@
         Editor = UM.getEditor('myEditor');
         Editor.setHeight(window.document.body.scrollHeight - Editor.body.getBoundingClientRect().top - 100);
         initEvent();
-        selectAll();
+        postMsg('clip');
+        //selectAll();
     }
     init();
 
