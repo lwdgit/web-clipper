@@ -2,7 +2,7 @@
     var host = 'http://lwdgit.github.io';
     var conf = {
         origin: host,
-        base: host + '/web-clipper/dist'
+        base: host + '/web-clipper/dist/'
     };
 
     window.addEventListener('message', function(e) {
@@ -47,7 +47,7 @@
         },
         appendIFrame: function() {
             var iframe = document.createElement('iframe');
-            iframe.src = conf.base + '/editor/';
+            iframe.src = conf.base + 'editor/';
             iframe.style.cssText = 'width: 100%;height: 100%';
             this.main_frame = iframe;
             this.main_layer.appendChild(iframe);
