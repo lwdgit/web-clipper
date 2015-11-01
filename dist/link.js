@@ -1,8 +1,8 @@
 (function(window, document) {
-    var host = 'http://127.0.0.1:8080';
+    var host = 'http://lwdgit.github.io';
     var conf = {
         origin: host,
-        base: host + '/'
+        base: host + '/web-clipper/dist/'
     };
 
     window.addEventListener('message', function(e) {
