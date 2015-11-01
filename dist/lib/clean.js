@@ -3,7 +3,8 @@ _cmd_define('/lib/clean.js', function(_cmd_require, exports, module) {
 var cleanRules = {
     '.cnblogs_code': _cmd_require('/clean-rules/cnblogs_code.js'),
     '.syntaxhighlighter': _cmd_require('/clean-rules/syntaxhighlighter.js'),
-    '.dp-highlighter': _cmd_require('/clean-rules/dp-highlighter.js')
+    '.dp-highlighter': _cmd_require('/clean-rules/dp-highlighter.js'),
+    '.prettyprint': _cmd_require('/clean-rules/prettyprint.js')
 };
 
 

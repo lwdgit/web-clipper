@@ -1,4 +1,4 @@
 module.exports = function(code) {
-    code = code.replace(/<\/?(code|p|span|i|em)[^>]*>/gi, '');
-    return '<code>' + code.replace(/^\s*[\n\r]+/, '').replace(/[\r\n]+\s*$/, '') + '</code>';
+    code = code.replace(/<\/?(code|div|a|p|span|i|em)[^>]*>/gi, '');
+    return '<pre><code>' + code.replace(/^\s*[\n\r]+/, '').replace(/[\r\n]+\s*$/, '') + '</code></pre>';
 };

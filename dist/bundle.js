@@ -1,7 +1,34 @@
-;/*!/clean-rules/syntaxhighlighter.js*/
+;/*!/clean-rules/cnblogs_code.js*/
 
 (function(d){if(d._cmd_require){return;}var c={};var b={};var e=function(g,f){g=g.replace(/\.js$/i,"");c[g]=f;},a=function(i){i=i.replace(/\.js$/i,"");var h=b[i];if(h){return h.exports;}var f=c[i];if(!f){throw"Cannot find module `"+i+"`";}h=b[i]={exports:{}};var g=(typeof f==="function")?f.apply(h,[a,h.exports,h]):f;if(g){h.exports=g;}return h.exports;};d._cmd_require=a;d._cmd_define=e;d.require=d.require||a;d.define=d.define||e;}(this));
 ;
+_cmd_define('/clean-rules/cnblogs_code.js', function(_cmd_require, exports, module) {
+module.exports = function(code) {
+    code = code.replace(/<\/?(code|div|a|p|span|i|em)[^>]*>/gi, '');
+    return '<pre><code>' + code.replace(/^\s*[\n\r]+/, '').replace(/[\r\n]+\s*$/, '') + '</code></pre>';
+};
+});
+
+;/*!/clean-rules/dp-highlighter.js*/
+
+_cmd_define('/clean-rules/dp-highlighter.js', function(_cmd_require, exports, module) {
+module.exports = function(code) {
+    return '';
+};
+});
+
+;/*!/clean-rules/prettyprint.js*/
+
+_cmd_define('/clean-rules/prettyprint.js', function(_cmd_require, exports, module) {
+module.exports = function(code) {
+    code = code.replace(/<(\/?(ol|ul)|li)[^>]*>/gi, '');
+    code = code.replace(/<\/li>/gi, '\n');
+    return '<code>' + code + '</code>';
+};
+});
+
+;/*!/clean-rules/syntaxhighlighter.js*/
+
 _cmd_define('/clean-rules/syntaxhighlighter.js', function(_cmd_require, exports, module) {
 
 module.exports = function(code) {
@@ -24,30 +51,14 @@ module.exports = function(code) {
 
 });
 
-;/*!/clean-rules/dp-highlighter.js*/
-
-_cmd_define('/clean-rules/dp-highlighter.js', function(_cmd_require, exports, module) {
-module.exports = function(code) {
-    return '';
-};
-});
-
-;/*!/clean-rules/cnblogs_code.js*/
-
-_cmd_define('/clean-rules/cnblogs_code.js', function(_cmd_require, exports, module) {
-module.exports = function(code) {
-    code = code.replace(/<\/?(code|p|span|i|em)[^>]*>/gi, '');
-    return '<code>' + code.replace(/^\s*[\n\r]+/, '').replace(/[\r\n]+\s*$/, '') + '</code>';
-};
-});
-
 ;/*!/lib/clean.js*/
 
 _cmd_define('/lib/clean.js', function(_cmd_require, exports, module) {
 var cleanRules = {
     '.cnblogs_code': _cmd_require('/clean-rules/cnblogs_code.js'),
     '.syntaxhighlighter': _cmd_require('/clean-rules/syntaxhighlighter.js'),
-    '.dp-highlighter': _cmd_require('/clean-rules/dp-highlighter.js')
+    '.dp-highlighter': _cmd_require('/clean-rules/dp-highlighter.js'),
+    '.prettyprint': _cmd_require('/clean-rules/prettyprint.js')
 };
 
 
