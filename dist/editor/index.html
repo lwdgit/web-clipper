@@ -124,6 +124,17 @@
             background: #FDFDFD;
             border: 1px solid #ECECEC;
         }
+        #myEditor {
+            font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+            font-size: 16px;
+            line-height: 1.7;
+        }
+        #myEditor p, #myEditor blockquote {
+            margin-bottom: 1.5em;
+        }
+        #myEditor div {
+            margin-bottom: 1.2em;
+        }
     </style>
     <link rel="stylesheet" type="text/css" href="/editor/umeditor/themes/default/css/umeditor.css" />
 </head>
@@ -132,21 +143,20 @@
 <input type="text" name="title" id="title" placeholder="在此输入标题">
 <input type="text" name="tags" id="tags" placeholder="在此输入标签，多个以 | 分隔">
 <input type="text" name="href" id="href" placeholder="在此输入来源网址，可以为空">
-<div id="editor" contenteditable></div>
+
 <br>
 <script type="text/plain" id="myEditor" style="width:100%;height:240px;">
     <p></p>
 </script>
 
-
-
 <br>
-
 <div class="btn-group">
     <button class="btn">保存</button>
     <button class="btn" onclick="postMsg('close')">隐藏</button>
     <button class="btn" onclick="selectAll()">全选</button>
     <button class="btn" onclick="postMsg('clip')">重新抓取</button>
+    <button class="btn" onclick="postMsg({html: document.getElementById('myEditor').innerHTML})">清理TAG</button>
+    <button class="btn" onclick="document.getElementById('myEditor').innerHTML = Editor.getContentTxt()">仅保留文本</button>
 </div>
 
 

@@ -11,6 +11,8 @@
                 CLIP.toggle();
             } else if (e.data === 'clip') {
                 CLIP.doClip();
+            } else if (e.data instanceof Object) {
+                CLIP.doClip(e.data.html);
             }
         }
     }, false);
@@ -52,9 +54,9 @@
             this.main_frame = iframe;
             this.main_layer.appendChild(iframe);
         },
-        doClip: function() {
+        doClip: function(data) {
             var div = document.createElement('div');
-            div.innerHTML = document.body.innerHTML;
+            div.innerHTML = data || document.body.innerHTML;
 
             CLIP.core.prepDocument(document, div);
             var content = CLIP.core.grabArticle(document, div);
@@ -63,6 +65,7 @@
                 content: content,
                 title: document.title
             });
+            div = null;
         },
         post: function(obj) {
             this.main_frame.contentWindow.postMessage(obj, '*');

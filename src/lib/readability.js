@@ -146,6 +146,9 @@ var grabArticle = module.exports.grabArticle = function(document, ele, preserveU
         }
 
         // Initialize readability data for the grandparent.
+         
+        if (!grandParentNode)continue;
+
         if (typeof grandParentNode.readability == 'undefined') {
             initializeNode(grandParentNode);
             candidates.push(grandParentNode);
