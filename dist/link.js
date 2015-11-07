@@ -49,7 +49,7 @@
         },
         appendIFrame: function() {
             var iframe = document.createElement('iframe');
-            iframe.src = conf.base + '/editor/';
+            iframe.src = conf.base + 'editor/';
             iframe.style.cssText = 'width: 100%;height: 100%';
             this.main_frame = iframe;
             this.main_layer.appendChild(iframe);

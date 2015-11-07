@@ -126,7 +126,7 @@
 
 <br>
 <div class="btn-group">
-    <button class="btn">保存</button>
+    <button class="btn" onclick="save()">保存</button>
     <button class="btn" onclick="postMsg('close')">隐藏</button>
     <button class="btn" onclick="selectAll()">全选</button>
     <button class="btn" onclick="postMsg('clip')">重新抓取</button>
@@ -151,6 +151,22 @@
     function selectAll() {
         Editor.focus();
         Editor.execCommand('selectAll');
+    }
+
+    function save() {
+        var title, tags, href, content;
+        title = document.getElementById('title').value;
+        tags = document.getElementById('tags').value || 'cnet';
+        href = document.getElementById('href').value;
+        content = Editor.getContent();
+        $.post('../backend/?' + Math.random(), {
+            title: title,
+            tags: tags,
+            href: href,
+            content: content
+        }, function(res) {
+            console.log(res);
+        });
     }
 
     function initEvent() {
