@@ -1,4 +1,5 @@
 fis.set('project.ignore', ['editor/umeditor/**']);
+fis.set('project.include', ['editor/umeditor/*'])
 fis.hook('relative')
 fis.match('**.css', {
     relative: true

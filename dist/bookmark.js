@@ -1,9 +1,1 @@
-javascript: (function() {
-    if (!window.__clipper) {
-        var s = document.createElement('script');
-        s.src = 'http://127.0.0.1:8080/link.js?' + Math.random();
-        document.getElementsByTagName('body')[0].appendChild(s);
-    } else {
-        window.__clipper.toggle();
-    }
-}()); 
+!function(){if(window.__clipper)window.__clipper.toggle();else{var e=document.createElement("script");e.src="http://127.0.0.1:8080/link.js",document.getElementsByTagName("body")[0].appendChild(e)}}();

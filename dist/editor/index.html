@@ -108,35 +108,10 @@
             box-sizing: border-box;
             line-height: 25px;
         }
-        pre, pre code {
-            display: block;
-            padding: 0.5em;
-            background: #002b36;
-            color: #CCCCCC;
-            font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace;
-        }
-        pre code {
-            border: none;
-        }
-        code {
-            padding: 1px 3px;
-            margin: 0 3px;
-            background: #FDFDFD;
-            border: 1px solid #ECECEC;
-        }
-        #myEditor {
-            font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
-            font-size: 16px;
-            line-height: 1.7;
-        }
-        #myEditor p, #myEditor blockquote {
-            margin-bottom: 1.5em;
-        }
-        #myEditor div {
-            margin-bottom: 1.2em;
-        }
+
     </style>
-    <link rel="stylesheet" type="text/css" href="/editor/umeditor/themes/default/css/umeditor.css" />
+    <link rel="stylesheet" type="text/css" href="umeditor/themes/default/css/umeditor.css" />
+    <link rel="stylesheet" type="text/css" href="editor.css" />
 </head>
 <body>
 
@@ -145,7 +120,7 @@
 <input type="text" name="href" id="href" placeholder="在此输入来源网址，可以为空">
 
 <br>
-<script type="text/plain" id="myEditor" style="width:100%;height:240px;">
+<script type="text/plain" id="myEditor" class="editor" style="width:100%;height:240px;">
     <p></p>
 </script>
 
@@ -160,10 +135,10 @@
 </div>
 
 
-<script type="text/javascript" src="/editor/umeditor/third-party/jquery.min.js"></script>
-<script type="text/javascript" src="/editor/umeditor/umeditor.config.js"></script>
-<script type="text/javascript" src="/editor/umeditor/umeditor.js"></script>
-<script type="text/javascript" src="/editor/umeditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="umeditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" src="umeditor/umeditor.config.js"></script>
+<script type="text/javascript" src="umeditor/umeditor.js"></script>
+<script type="text/javascript" src="umeditor/lang/zh-cn/zh-cn.js"></script>
 <script type="text/javascript">
     
     var Editor;
@@ -200,8 +175,8 @@
             if (e.data) {
                 document.getElementById('title').value = e.data.title;
                 document.getElementById('href').value = e.data.href;
-                document.getElementById('myEditor').innerHTML = e.data.content;
-                //Editor.setContent(e.data.content);
+                //document.getElementById('myEditor').innerHTML = e.data.content;
+                Editor.setContent(e.data.content);
             }
         });
     }

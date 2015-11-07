@@ -1,8 +1,8 @@
 (function(window, document) {
-    var host = 'http://127.0.0.1:8080';
+    var domain = "http://127.0.0.1:8080/";
     var conf = {
-        origin: host,
-        base: host + '/'
+        origin: domain.substr(0, domain.indexOf('/', 7)),//计算host
+        base: domain
     };
 
     window.addEventListener('message', function(e) {
