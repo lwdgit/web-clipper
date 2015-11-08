@@ -42,6 +42,7 @@ module.exports = function(code) {
 
 _cmd_define('/clean-rules/prettyprint.js', function(_cmd_require, exports, module) {
 module.exports = function(code) {
+    code = code.replace(/<ul class\="pre-numbering">.*?<\/ul>/im, '');
     code = code.replace(/<(\/?(ol|ul)|li)[^>]*>/gi, '');
     code = code.replace(/<\/li>/gi, '\n');
     return '<code>' + code + '</code>';
@@ -590,22 +591,24 @@ function cleanConditionally(e, tag) {
     }
 }
 
+//get document path
+var loc = location.origin + location.pathname.substring(0, location.pathname.lastIndexOf('/') + 1);
+
+function fixLink(link) {
+    dbg(link);
+    var fixed = /^(http(s)?\:)?\/\//i.test(link) ? link : loc + link.replace(/^[\/\\]/, '');
+    //var fixed = url.resolve(e.ownerDocument.originalURL, link);
+    return fixed;
+}
 
 /**
  * Converts relative urls to absolute for images and links
  **/
 function fixLinks(e) {
-    if (!e.ownerDocument.originalURL) {
+    /*if (!e.ownerDocument.originalURL) {
         return;
-    }
-
-    function fixLink(link) {
-        console.log(link);
-        fixed = link;
-        //var fixed = url.resolve(e.ownerDocument.originalURL, link);
-        return fixed;
-    }
-
+    }*/
+    
     var i;
     var imgs = e.getElementsByTagName('img');
     for (i = imgs.length - 1; i >= 0; --i) {

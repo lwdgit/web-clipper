@@ -2,7 +2,8 @@
     var domain = __inline('domain.conf');
     var conf = {
         origin: domain.substr(0, domain.indexOf('/', 7)),//计算host
-        base: domain
+        base: domain,
+        debug: document.scripts[document.scripts.length - 1].src.indexOf('?debug') > 0
     };
 
     window.addEventListener('message', function(e) {
@@ -35,7 +36,7 @@
             document.body.appendChild(script);
             script.onload = script.onreadystatechange = function() {
                 CLIP.core = _cmd_require('/lib/readability.js');
-                CLIP.core.setCleanRules([function() {console.log(arguments)}]);
+                CLIP.core.debug(conf.debug);//屏蔽log
             }
         },
         createClipDiv: function() {
@@ -70,9 +71,7 @@
         post: function(obj) {
             this.main_frame.contentWindow.postMessage(obj, '*');
         },
-        core: {
-            exports: {}
-        }
+        core: null
     };
 
     CLIP.createClipDiv();

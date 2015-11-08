@@ -24,7 +24,6 @@ code {
     line-height: 1.7;
 }
 
-
 .editor p {
     margin: 0 0 1em;
 }
@@ -50,6 +49,17 @@ code {
     margin: 20px auto;
     background-color: #F3F2EE;
 }
+
 .editor.preview blockquote {
     border-left-color: #e0e0e0;
+}
+
+.editor table {
+    border-spacing: 0;
+    border-collapse: collapse;//边框合并
+}
+
+.editor td, .editor th{
+    border: 1px solid #777;
+    padding: 10px;
 }

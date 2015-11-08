@@ -132,6 +132,7 @@
     <button class="btn" onclick="postMsg('clip')">重新抓取</button>
     <button class="btn" onclick="postMsg({html: document.getElementById('myEditor').innerHTML})">清理TAG</button>
     <button class="btn" onclick="document.getElementById('myEditor').innerHTML = Editor.getContentTxt()">仅保留文本</button>
+    <button class="btn" onclick="Editor.execCommand('preview')">预览</button>
 </div>
 
 
