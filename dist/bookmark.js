@@ -1,0 +1,1 @@
+!function(){if(window.__clipper)window.__clipper.toggle();else{var e=document.createElement("script");e.src="http://lwdgit.github.io/web-clipper/dist/link.js?debug",document.getElementsByTagName("body")[0].appendChild(e)}}();
