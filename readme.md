@@ -3,9 +3,10 @@
 > 网页剪报，类似有道云剪报。可实现点击书签对网页进行采集，并存储。
 
 # 测试
-请将如下代码保存至书签:
-
-<input type="text" style="width:100%" value="javascript:(function(){if(!window.__clipper){var a=document.createElement('script');a.src='http://lwdgit.github.io/web-clipper/dist/link.js';document.getElementsByTagName('body')[0].appendChild(a);}else{window.__clipper.toggle();}}());">
+请将如下代码保存至书签，然后在正文页（博客或新闻），点击书签栏。
+```javascript
+javascript:(function(){if(!window.__clipper){var a=document.createElement('script');a.src='http://lwdgit.github.io/web-clipper/dist/link.js';document.getElementsByTagName('body')[0].appendChild(a);}else{window.__clipper.toggle();}}());
+```
 
 # 二次开发说明
 
