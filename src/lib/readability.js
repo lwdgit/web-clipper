@@ -493,7 +493,7 @@ function fixLink(link) {
 
     //var fixed = url.resolve(e.ownerDocument.originalURL, link);
     var fixed = /^(http(s)?\:)?\/\//i.test(link) ? link : link.charAt(0) === '/' ? location.origin + link : loc + link;
-    
+
     return fixed;
 }
 
