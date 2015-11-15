@@ -596,7 +596,7 @@ var loc = location.origin + location.pathname.substring(0, location.pathname.las
 
 function fixLink(link) {
     dbg(link);
-    var fixed = /^(http(s)?\:)?\/\//i.test(link) ? link : loc + link.replace(/^[\/\\]/, '');
+        var fixed = /^(http(s)?\:)?\/\//i.test(link) ? link : link.charAt(0) === '/' ? location.origin  + link : loc + link;
     //var fixed = url.resolve(e.ownerDocument.originalURL, link);
     return fixed;
 }
