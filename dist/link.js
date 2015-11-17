@@ -1,5 +1,5 @@
 (function(window, document) {
-    var domain = "http://lwdgit.github.io/web-clipper/dist/";
+    var domain = "http://127.0.0.1:8080/";
     var conf = {
         origin: domain.substr(0, domain.indexOf('/', 7)),//计算host
         base: domain,
