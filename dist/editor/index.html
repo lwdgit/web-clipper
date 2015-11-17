@@ -165,18 +165,22 @@
         tags = document.getElementById('tags').value || 'cnet';
         href = document.getElementById('href').value;
         content = Editor.getContent();
-        $.post('../backend/?' + Math.random(), {
+        $.post("http://127.0.0.1/plugins/web-clipper/" + '?' + Math.random(), {
             title: title,
             tags: tags,
             href: href,
             content: content
         }, function(res) {
-            console.log(res);
+            if (res !== 'success') {
+                alert(res);
+            } else {
+                alert('保存成功！');
+            }
         });
     }
 
     function initEvent() {
-        $('input[type="text"]').on('blur', function() {
+        /*$('input[type="text"]').on('blur', function() {
             postMsg('blur');
         });
         Editor.addListener('blur', function() {
@@ -188,7 +192,7 @@
         });
         Editor.addListener('focus', function() {
             postMsg('focus');
-        });
+        });*/
         $(window).on('resize', function() {
             Editor.setWidth(window.document.body.clientWidth);
             //Editor.setHeight(window.document.body.clientHeight);
