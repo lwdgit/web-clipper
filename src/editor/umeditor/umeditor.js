@@ -6148,6 +6148,7 @@ UM.commands['print'] = {
             d = w.document;
         d.open();
         d.write('<html><head></head><body><div>'+this.getContent(null,null,true)+'</div><script>' +
+            "window.location.hash=window.parent.document.getElementById('href').value;" + 
             "setTimeout(function(){" +
             "window.print();" +
             "setTimeout(function(){" +
