@@ -6,7 +6,8 @@ fis.match('**.css', {
     relative: true
 })
 fis.match('editor/index.html', {
-    isHtmlLike: false
+    isHtmlLike: false,
+    isJsLike: true
 })
 
 //fis.extend('compress')
@@ -32,3 +33,8 @@ fis.media('github')
         return 'http://lwdgit.github.io/web-clipper/dist/'
     }
 })
+/*.match('server.conf', {
+    parser: function(file, content) {
+        return 'http://lwdgit.github.io/web-clipper/dist/'
+    }
+})*/
