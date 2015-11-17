@@ -30,11 +30,11 @@ fis.match('lib/**.js', {
 fis.media('github')
 .match('domain.conf', {
     parser: function(file, content) {
-        return 'http://lwdgit.github.io/web-clipper/dist/'
+        return 'http://lwdgit.github.io/web-clipper/dist/';
     }
 })
-/*.match('server.conf', {
+.match('server.conf', {
     parser: function(file, content) {
-        return 'http://lwdgit.github.io/web-clipper/dist/'
+        return 'http://wenblog.sinaapp.com/plugins/web-clipper/';
     }
-})*/
+})
