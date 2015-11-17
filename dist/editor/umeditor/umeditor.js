@@ -6148,6 +6148,7 @@ UM.commands['print'] = {
             d = w.document;
         d.open();
         d.write('<html><head></head><body><div>'+this.getContent(null,null,true)+'</div><script>' +
+            "window.location.hash=window.parent.document.getElementById('href').value;" + 
             "setTimeout(function(){" +
             "window.print();" +
             "setTimeout(function(){" +
@@ -7162,8 +7163,10 @@ UM.commands['preview'] = {
                 '<script src="' + path + 'third-party/jquery.min.js"></script>' +
                 '<script src="' + path + 'third-party/mathquill/mathquill.min.js"></script>':'';
             title = '<title>' + document.getElementById('title').value + '</title>';
+            w.name = document.getElementById('href').value;
 
         formula += '<link rel="stylesheet" href="editor.css">';
+        formula += '<script>location.hash=window.name;</script>';//将window.name写入hash
         d.open();
         d.write('<html><head>' + formula + title + '</head><body class="editor preview"><div>'+c+'</div></body></html>');
         d.close();

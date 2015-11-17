@@ -8,6 +8,7 @@ fis.match('**.css', {
 fis.match('editor/index.html', {
     isHtmlLike: false
 })
+
 //fis.extend('compress')
 
 fis.match('bookmark.js', {
@@ -25,3 +26,9 @@ fis.match('lib/**.js', {
     packOrder: 100
 });
 
+fis.media('github')
+.match('domain.conf', {
+    parser: function(file, content) {
+        return 'http://lwdgit.github.io/web-clipper/dist/'
+    }
+})
