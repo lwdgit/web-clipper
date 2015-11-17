@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <title>web-clipper</title>
+    <style>
+        .btn {
+            display: inline-block;
+            *display: inline;
+            padding: 4px 12px;
+            margin-bottom: 0;
+            *margin-left: .3em;
+            font-size: 14px;
+            line-height: 20px;
+            color: #333333;
+            text-align: center;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.75);
+            vertical-align: middle;
+            cursor: pointer;
+            background-color: #f5f5f5;
+            *background-color: #e6e6e6;
+            background-image: -moz-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#ffffff), to(#e6e6e6));
+            background-image: -webkit-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: -o-linear-gradient(top, #ffffff, #e6e6e6);
+            background-image: linear-gradient(to bottom, #ffffff, #e6e6e6);
+            background-repeat: repeat-x;
+            border: 1px solid #cccccc;
+            *border: 0;
+            border-color: #e6e6e6 #e6e6e6 #bfbfbf;
+            border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+            border-bottom-color: #b3b3b3;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffe6e6e6', GradientType=0);
+            filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+            *zoom: 1;
+            -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn:hover,
+        .btn:focus,
+        .btn:active,
+        .btn.active,
+        .btn.disabled,
+        .btn[disabled] {
+            color: #333333;
+            background-color: #e6e6e6;
+            *background-color: #d9d9d9;
+        }
+
+        .btn:active,
+        .btn.active {
+            background-color: #cccccc \9;
+        }
+
+        .btn:first-child {
+            *margin-left: 0;
+        }
+
+        .btn:hover,
+        .btn:focus {
+            color: #333333;
+            text-decoration: none;
+            background-position: 0 -15px;
+            -webkit-transition: background-position 0.1s linear;
+            -moz-transition: background-position 0.1s linear;
+            -o-transition: background-position 0.1s linear;
+            transition: background-position 0.1s linear;
+        }
+
+        .btn:focus {
+            outline: thin dotted #333;
+            outline: 5px auto -webkit-focus-ring-color;
+            outline-offset: -2px;
+        }
+
+        .btn.active,
+        .btn:active {
+            background-image: none;
+            outline: 0;
+            -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+            -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn.disabled,
+        .btn[disabled] {
+            cursor: default;
+            background-image: none;
+            opacity: 0.65;
+            filter: alpha(opacity=65);
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            border: 1px solid #d4d4d4;
+            box-shadow: 1px 1px 5px #d3d6da;
+            margin: 5px 0;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            line-height: 25px;
+        }
+
+    </style>
+    <script>
+        if (window.location.hash) {
+            window.location.href = window.location.hash.substring(1);
+        }
+    </script>
+    <link rel="stylesheet" type="text/css" href="umeditor/themes/default/css/umeditor.css" />
+    <link rel="stylesheet" type="text/css" href="editor.css" />
+</head>
+<body>
+
+<input type="text" name="title" id="title" placeholder="在此输入标题">
+<input type="text" name="tags" id="tags" placeholder="在此输入标签，多个以 | 分隔">
+<input type="text" name="href" id="href" placeholder="在此输入来源网址，可以为空">
+
+<br>
+<script type="text/plain" id="myEditor" class="editor" style="width:100%;height:240px;">
+    <p></p>
+</script>
+
+<br>
+<div class="btn-group">
+    <button class="btn" onclick="save()">保存</button>
+    <button class="btn" onclick="postMsg('close')">隐藏</button>
+    <button class="btn" onclick="selectAll()">全选</button>
+    <button class="btn" onclick="postMsg('clip')">重新抓取</button>
+    <button class="btn" onclick="postMsg({html: document.getElementById('myEditor').innerHTML})">清理TAG</button>
+    <button class="btn" onclick="document.getElementById('myEditor').innerHTML = Editor.getContentTxt()">仅保留文本</button>
+    <button class="btn" onclick="Editor.execCommand('preview')">预览</button>
+</div>
+
+
+<script type="text/javascript" src="umeditor/third-party/jquery.min.js"></script>
+<script type="text/javascript" src="umeditor/umeditor.config.js"></script>
+<script type="text/javascript" src="umeditor/umeditor.js"></script>
+<script type="text/javascript" src="umeditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript">
+    
+    var Editor;
+    function postMsg(msg) {
+        if (window != parent) {
+            parent.postMessage(msg, '*');
+        }
+    }
+
+    function selectAll() {
+        Editor.focus();
+        Editor.execCommand('selectAll');
+    }
+
+    function save() {
+        var title, tags, href, content;
+        title = document.getElementById('title').value;
+        tags = document.getElementById('tags').value || 'cnet';
+        href = document.getElementById('href').value;
+        content = Editor.getContent();
+        window.postData($.param({
+            title: title,
+            tags: tags,
+            href: href,
+            content: content
+        }));
+    }
+
+    function initEvent() {
+
+        $(window).on('resize', function() {
+            Editor.setWidth(window.document.body.clientWidth);
+            //Editor.setHeight(window.document.body.clientHeight);
+        });
+        window.addEventListener('message', function(e) {
+            if (e.data) {
+                document.getElementById('title').value = e.data.title;
+                document.getElementById('href').value = e.data.href;
+                //document.getElementById('myEditor').innerHTML = e.data.content;
+                Editor.setContent(e.data.content);
+            }
+        });
+    }
+
+    function initPoster() {
+        var poster = document.createElement('iframe');
+        poster.id = 'ajax_poster';
+        poster.src = __inline('/client/server.conf') + 'ajax.html';
+        poster.style.cssText = 'width: 0; height:0; display: none';
+        document.getElementsByTagName('body')[0].appendChild(poster);
+        window.postData = function(data) {
+            poster.contentWindow.postMessage(data, '*');
+        }
+    }
+    
+    function init() {
+        Editor = UM.getEditor('myEditor');
+        Editor.setHeight(window.document.body.scrollHeight - Editor.body.getBoundingClientRect().top - 100);
+        initEvent();
+        initPoster();
+        postMsg('clip');
+    }
+    init();
+
+</script>
+</body>
+</html>

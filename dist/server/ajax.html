@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax poster</title>
+</head>
+<body>
+    <!--让editor将该文件包含进来-->
+    <script>
+        var hasPost = false;
+        var AjaxPost = function(url, data, callback) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', url, true);
+            xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhr.send(data);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        if (typeof callback === 'function') {
+                            callback(xhr.responseText);
+                        }
+                    }
+                }
+            };
+        };
+
+
+        window.addEventListener('message', function(e) {
+            if (e.data) {
+                if (hasPost) {
+                    e.data = 'action=update&' + e.data;
+                }
+                AjaxPost('index.php', e.data, function(res) {
+                    if (res === 'success') {
+                        hasPost = true;
+                        alert('保存成功！');
+                    } else {
+                        alert(res);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
