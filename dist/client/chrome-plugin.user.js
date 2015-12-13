@@ -10,12 +10,12 @@
 
 (function() {
     function load() {
-        if (!window.__clipper) {
+        if (!top.__clipper) {
             var s = document.createElement('script');
             s.src = "https://lwdgit.github.io/web-clipper/dist/client/" + 'link.js?debug';
             document.getElementsByTagName('body')[0].appendChild(s);
         } else {
-            window.__clipper.toggle();
+            top.__clipper.toggle();
         }
     }
 
