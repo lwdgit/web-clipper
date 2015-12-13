@@ -31,11 +31,11 @@ fis.match('client/lib/**.js', {
 fis.media('github')
 .match('client/client.conf', {
     parser: function(file, content) {
-        return 'http://lwdgit.github.io/web-clipper/dist/client/';
+        return 'https://lwdgit.github.io/web-clipper/dist/client/';
     }
 })
 .match('client/server.conf', {
     parser: function(file, content) {
-        return 'http://wenblog.sinaapp.com/plugins/web-clipper/';
+        return 'https://wenblog.sinaapp.com/plugins/web-clipper/';
     }
 })

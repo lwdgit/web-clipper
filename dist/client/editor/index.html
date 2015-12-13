@@ -192,12 +192,12 @@
     function initPoster() {
         var poster = document.createElement('iframe');
         poster.id = 'ajax_poster';
-        poster.src = "http://wenblog.sinaapp.com/plugins/web-clipper/" + 'ajax.html';
+        poster.src = "https://wenblog.sinaapp.com/plugins/web-clipper/" + 'ajax.html';
         poster.style.cssText = 'width: 0; height:0; display: none';
         document.getElementsByTagName('body')[0].appendChild(poster);
         window.postData = function(data) {
             poster.contentWindow.postMessage(data, '*');
-        }
+        };
     }
     
     function init() {

@@ -197,7 +197,7 @@
         document.getElementsByTagName('body')[0].appendChild(poster);
         window.postData = function(data) {
             poster.contentWindow.postMessage(data, '*');
-        }
+        };
     }
     
     function init() {
