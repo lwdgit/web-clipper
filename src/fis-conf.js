@@ -36,6 +36,6 @@ fis.media('github')
 })
 .match('client/server.conf', {
     parser: function(file, content) {
-        return 'http://wenblog.sinaapp.com/plugins/web-clipper/';
+        return 'https://wenblog.vipsinaapp.com/plugins/web-clipper/';
     }
 })
