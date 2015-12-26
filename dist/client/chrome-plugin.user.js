@@ -12,7 +12,7 @@
     function load() {
         if (!top.__clipper) {
             var s = document.createElement('script');
-            s.src = "https://lwdgit.github.io/web-clipper/dist/client/" + 'link.js?debug';
+            s.src = "http://127.0.0.1:8080/client/" + 'link.js?debug';
             document.getElementsByTagName('body')[0].appendChild(s);
         } else {
             top.__clipper.toggle();

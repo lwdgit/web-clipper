@@ -27,7 +27,7 @@ fis.match('client/lib/**.js', {
     packOrder: 100
 });
 
-
+fis.config.set('port', 8080);
 fis.media('github')
 .match('client/client.conf', {
     parser: function(file, content) {

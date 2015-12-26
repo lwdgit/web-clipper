@@ -1,7 +1,7 @@
 (function(window, document) {
     var domain = __inline('client.conf');
     var conf = {
-        origin: domain.substr(0, domain.indexOf('/', 7)),//计算host
+        origin: domain.substr(0, domain.indexOf('/', 8)),//计算host
         base: domain,
         debug: document.scripts[document.scripts.length - 1].src.indexOf('?debug') > 0
     };
