@@ -31,11 +31,11 @@ fis.config.set('port', 8080);
 fis.media('github')
 .match('client/client.conf', {
     parser: function(file, content) {
-        return 'https://lwdgit.github.io/web-clipper/dist/client/';
+        return '//lwdgit.github.io/web-clipper/dist/client/';
     }
 })
 .match('client/server.conf', {
     parser: function(file, content) {
-        return 'https://wenblog.vipsinaapp.com/plugins/web-clipper/';
+        return '//wenblog.vipsinaapp.com/plugins/web-clipper/';
     }
 })
