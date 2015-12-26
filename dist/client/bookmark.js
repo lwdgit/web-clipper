@@ -1,1 +1,1 @@
-!function(){if(window.__clipper)window.__clipper.toggle();else{var e=document.createElement("script");e.src="http://127.0.0.1:8080/client/link.js?debug",document.getElementsByTagName("body")[0].appendChild(e)}}();
+!function(){if(window.__clipper)window.__clipper.toggle();else{var e=document.createElement("script");e.src="https://lwdgit.github.io/web-clipper/dist/client/link.js?debug",document.getElementsByTagName("body")[0].appendChild(e)}}();
