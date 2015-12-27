@@ -24,6 +24,12 @@ module.exports.setCleanRules = function(rules) {
     cleanRules = rules;
 };
 
+
+module.exports.cleanStyle = function(document, ele) {
+    userClean(ele);
+    return cleanHTML(ele.outerHTML);
+};
+
 /**
  * Prepare the HTML document for readability to scrape it.
  * This includes things like stripping javascript, CSS, and handling terrible markup.
@@ -778,4 +784,4 @@ function cleanHTML(html) {
     //remove td p
     html = html.replace(/<td>(<(p|div)>\d+<\/\2>)+<\/td>/gi, '');
     return html;
-};
+}
