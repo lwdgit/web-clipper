@@ -11,7 +11,7 @@
 
     window.addEventListener('message', function(e) {
         if (e.origin === conf.origin) {
-            var type = e.type, data = e.data;
+            var type = e.data.type, data = e.data.data || '';
             if (type === 'close') {
                 CLIP.toggle();
             } else if (type === 'clip') {
