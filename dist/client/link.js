@@ -17,9 +17,9 @@
             } else if (type === 'clip') {
                 CLIP.doClip(null, 'grabArticle');
             } else if (type === 'cleanTag') {
-                CLIP.doClip(data, 'grabArticle');
+                CLIP.doClip(data.html, 'grabArticle');
             } else if (type === 'cleanStyle') {
-                CLIP.doClip(data, 'cleanStyle');
+                CLIP.doClip(data.html, 'cleanStyle');
             }
         }
     }, false);
