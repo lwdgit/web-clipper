@@ -1,5 +1,8 @@
 (function(window, document) {
     var domain = "//lwdgit.github.io/web-clipper/dist/client/";
+    if (/^\/\//.test(domain)) {
+        domain = window.location.protocol + domain;
+    }
     var conf = {
         origin: domain.substr(0, domain.indexOf('/', 8)),//计算host
         base: domain,
