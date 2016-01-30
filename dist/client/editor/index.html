@@ -207,7 +207,7 @@
     
     function init() {
         Editor = UM.getEditor('myEditor');
-        Editor.setHeight(window.document.body.scrollHeight - Editor.body.getBoundingClientRect().top - 100);
+        Editor.setHeight(window.document.documentElement.scrollHeight - Editor.body.getBoundingClientRect().top - 100);
         initEvent();
         initPoster();
         postMsg('clip');
